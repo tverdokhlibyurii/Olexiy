@@ -1,0 +1,9 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button:nth-child(odd) {
+  outline: none !important;
+  margin-right: 10px;
+}
