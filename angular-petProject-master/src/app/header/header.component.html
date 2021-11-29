@@ -6,7 +6,7 @@
     <div class="collaspe navbar-collapse">
       <ul class="nav navbar-nav">
         <li routerLinkActive="active" *ngIf="isAthenticated">
-          <a routerLink="/recipes">Головна</a>
+          <a routerLink="/goods">Головна</a>
         </li>
         <li routerLinkActive="active" *ngIf="!isAthenticated">
           <a routerLink="/auth">Авторизація</a>
@@ -14,9 +14,9 @@
         <li routerLinkActive="active" *ngIf="isAthenticated">
           <a routerLink="/shopping-list">Корзина</a>
         </li>
-        <li routerLinkActive="active" *ngIf="isAthenticated">
-          <a routerLink="/oplata">Оплата</a>
-        </li>
+        <!-- <li routerLinkActive="active" *ngIf="isAthenticated">
+          <a routerLink="/oplata">Корзина</a>
+        </li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>

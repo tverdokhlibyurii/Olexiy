@@ -6,6 +6,7 @@
         class="form-control"
         name="searchInput"
         [(ngModel)]="searchInput"
+        autocomplete="off"
       />
       <app-recipe-item
         *ngFor="let recipeItem of recipes | search: searchInput; let i = index"
@@ -17,7 +18,6 @@
     <hr />
   </div>
   <div class="col-xs-12">
-    <button class="btn btn-success" (click)="onNewRecipe()">Новий товар</button>
     <hr />
   </div>
 </div>
@@ -30,4 +30,5 @@
     >
     </app-recipe-item>
   </div>
+  <button class="btn btn-success" (click)="onNewRecipe()">Новий товар</button>
 </div>
