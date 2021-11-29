@@ -34,19 +34,19 @@ const handleauthentiction = (expiresIn: number, email: string, userId: string, t
 }
 
 const handleError = (errorRes: any) => {
-    let errorMessage = 'Unknown error occured!'
+    let errorMessage = 'Появилась невідома помилка! Введіть пароль ще раз!'
     if (!errorRes.error || !errorRes.error.error) {
         return of(new AuthActions.AuthenticateFail(errorMessage))
     }
     switch (errorRes.error.error.message) {
         case 'EMAIL_EXISTS':
-            errorMessage = 'This mail already exist!';
+            errorMessage = 'Такий email вже існує!';
             break;
         case 'EMAIL_NOT_FOUND':
-            errorMessage = "Email not found";
+            errorMessage = "Email не знайдено! ";
             break;
         case 'INVALID_PASSWORD':
-            errorMessage = 'Your password is invalid';
+            errorMessage = 'Ваш пароль неправильний';
             break;
     }
     return of(new AuthActions.AuthenticateFail(errorMessage));

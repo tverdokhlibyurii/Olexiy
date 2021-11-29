@@ -1,8 +1,9 @@
+import { Ingredient } from './../shared/iggredient.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
+import { map, reduce } from 'rxjs/operators';
 
-import { Ingredient } from '../shared/iggredient.model';
 import * as fromApp from '../store/app.reducer';
 import * as ShoppingListActions from './store/shoppin-list.actions';
 
@@ -15,7 +16,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ingredients: Observable<{ ingredients: Ingredient[] }>;
   private igChangeSub: Subscription;
-
+  sum: Observable<any>
   constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {
@@ -26,10 +27,14 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     //     this.ingredients = ingredients;
     //   }
     // )
-  }
-
-  ngOnDestroy() {
-    //  this.igChangeSub.unsubscribe();
+  this.sum =  this.ingredients.pipe(
+      reduce(
+        (acc,ingredients, index)=>{
+           return  acc + ingredients.ingredients[index].amount
+        }, 0
+      )
+    )
+    // console.log(this.sum)
   }
 
   OnEditItem(index: number) {
@@ -37,4 +42,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.store.dispatch(new ShoppingListActions.startEdit(index))
   }
 
+
+  ngOnDestroy() {
+    //  this.igChangeSub.unsubscribe();
+  }
 }

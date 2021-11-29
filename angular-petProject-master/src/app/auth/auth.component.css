@@ -7,3 +7,11 @@ button:nth-child(odd) {
   outline: none !important;
   margin-right: 10px;
 }
+
+form {
+  margin-top: 100px;
+  border: 1px solid grey;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px lightgrey;
+}

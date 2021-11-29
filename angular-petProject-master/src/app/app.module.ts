@@ -20,8 +20,8 @@ import { RecipeEffects } from './recipes/store/recipe.effects';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-  ],
+    HeaderComponent
+   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
